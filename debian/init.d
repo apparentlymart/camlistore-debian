@@ -18,7 +18,7 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC=camlistore              # Introduce a short description here
 NAME=camlistore              # Introduce the short server's name here
 DAEMON=/usr/sbin/camlistored # Introduce the server's location here
-DAEMON_ARGS='-configfile="/etc/camlistore/server-config.json"'
+DAEMON_ARGS='-configfile=/etc/camlistore/server-config.json'
 PIDFILE=/var/run/$NAME.pid
 SCRIPTNAME=/etc/init.d/$NAME
 
