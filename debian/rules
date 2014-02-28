@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+
+INSTALL_DIR=debian/tmp
+
+clean:
+	make clean
+
+build: build-arch build-indep
+
+build-arch:
+	make all
+
+build-indep:
+
+install:
+	mkdir -p $(INSTALL_DIR)/DEBIAN
+	dpkg-gencontrol
+	mkdir -p $(INSTALL_DIR)/usr/bin
+	cp bin/camget bin/camput bin/cammount bin/camtool $(INSTALL_DIR)/usr/bin
+	mkdir -p $(INSTALL_DIR)/usr/sbin
+	cp bin/camlistored $(INSTALL_DIR)/usr/sbin
+	mkdir -p $(INSTALL_DIR)/usr/share/camlistore/server/camlistored
+	cp -r server/camlistored/ui $(INSTALL_DIR)/usr/share/camlistore/server/camlistored/ui
+	mkdir -p $(INSTALL_DIR)/usr/share/camlistore/third_party/closure
+	cp -r third_party/closure/lib $(INSTALL_DIR)/usr/share/camlistore/third_party/closure/lib
+
+binary: binary-arch binary-indep
+
+binary-arch: install
+	dpkg-deb -b $(INSTALL_DIR) ..
+
+binary-indep: install

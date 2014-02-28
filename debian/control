@@ -1,0 +1,13 @@
+Source: camlistore
+Section: unknown
+Priority: extra
+Maintainer: Martin Atkins <mart@degeneration.co.uk>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.2
+Homepage: http://camlistore.org/
+Vcs-Git: http://github.com/apparentlymart/camlistore-debian.git
+
+Package: camlistore
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Your personal storage system for life.
