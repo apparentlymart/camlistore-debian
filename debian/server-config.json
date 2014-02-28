@@ -1,3 +1,6 @@
 {
-    "sourceRoot": "/usr/share/camlistore"
+    "sourceRoot": "/usr/share/camlistore",
+    "auth": "localhost",
+    "blobPath": "/var/lib/camlistore/blobs",
+    "sqlite": "/var/lib/camlistore/index.db"
 }

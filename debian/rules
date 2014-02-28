@@ -28,6 +28,8 @@ install:
 	chmod a+x $(INSTALL_DIR)/etc/init.d/camlistored
 	mkdir -p $(INSTALL_DIR)/etc/camlistore
 	cp debian/server-config.json $(INSTALL_DIR)/etc/camlistore/server-config.json
+	mkdir -p $(INSTALL_DIR)/var/lib/camlistore/blobs
+	touch $(INSTALL_DIR)/var/lib/camlistore/blobs/.exists
 
 binary: binary-arch binary-indep
 
