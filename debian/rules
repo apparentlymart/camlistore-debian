@@ -23,6 +23,11 @@ install:
 	cp -r server/camlistored/ui $(INSTALL_DIR)/usr/share/camlistore/server/camlistored/ui
 	mkdir -p $(INSTALL_DIR)/usr/share/camlistore/third_party/closure
 	cp -r third_party/closure/lib $(INSTALL_DIR)/usr/share/camlistore/third_party/closure/lib
+	mkdir -p $(INSTALL_DIR)/etc/init.d
+	cp debian/init.d $(INSTALL_DIR)/etc/init.d/camlistored
+	chmod a+x $(INSTALL_DIR)/etc/init.d/camlistored
+	mkdir -p $(INSTALL_DIR)/etc/camlistore
+	cp debian/server-config.json $(INSTALL_DIR)/etc/camlistore/server-config.json
 
 binary: binary-arch binary-indep
 
